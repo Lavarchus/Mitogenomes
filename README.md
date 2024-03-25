@@ -9,4 +9,4 @@ Allio, R., Schomaker‐Bastos, A., Romiguier, J., Prosdocimi, F., Nabholz, B., &
 
 If using scripts in this repo:
 
-Baraf, L., Hung, J., Cowman, P., & Pratchett, M. (in press). Comparative mitogenomics of marine angelfishes (F: Pomacanthidae).
+Baraf, L., Hung, J., & Pratchett, M. and Cowman, P. (in press). Comparative mitogenomics of marine angelfishes (F: Pomacanthidae).
