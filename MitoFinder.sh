@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script was written to conduct two runs of MitoFinder to extract mitogenomes from UCE captured data. Mitofinder is a pipeline to assemble and annotate mitochondrial DNA from trimmed reads. Please check instruction on MF's GitHub to make sure that your options are adequate for your data and study organism - Instructions on https://github.com/RemiAllio/MitoFinder
 # Written by lauriane.baraf@my.jcu.edu.au on 12/06/2023 - last modified 30/10/2023
-# Associated GitHub repo includes - 1 annotated bash script (MitoFinder.sh) + 1 PBS script (run_MitoFinder.pbs) + 2 bash scripts to run in parallel on your local  machine (mitofinder*_inhouse.sh) + 1 mt genes text file (genes_list.txt)
+# Associated GitHub repo includes - 1 annotated bash script (MitoFinder.sh) + 1 PBS script (run_MitoFinder.pbs) + 2 bash scripts to run in parallel on your local machine (mitofinder*_inhouse.sh) + 1 mt genes text file (genes_list.txt)
 
 
 --------------------------------------------------- REQUIREMENTS & STEPS ---------------------------------------------------
@@ -90,9 +90,9 @@ done
 echo "Number of species with mtDNA contigs: $count"
 
 
-########################################## 5 Second MitoFinder run - SCRIPT MitoFinder.pbs or mitofinder2_inhouse.sh ##########################################
-# Only run this one if you have a close reference available
-# Note: modify intron size based on your study species - here it's set for fishes. Have a look at the different options using -h
+########################################## 5 Second MitoFinder run - SCRIPT MitoFinder.pbs or mitofinder2_inhouse.sh (optional) ##########################################
+# Only run this one if you have a close reference available and your study species mitogenome contains introns. The --adjust-direction flag will have your output contigs match the orientation of reference sequences.
+# Note: modify intron size based on your study species. Have a look at the different options using -h
 /home/MitoFinder/MitoFinderPackage/mitofinder -j $sample \
         -a $contigs \
         -r PMC_mtRefSeq.gb \
