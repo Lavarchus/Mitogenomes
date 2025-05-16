@@ -1,6 +1,7 @@
 ## Description
 
 This repository describes a workflow to harvest and process partial and complete mitochondrial genomes from off-target reads of UCE captured data using MitoFinder (Allio et al. 2020) and MAFFT (Katoh & Standley, 2013). Associated data and publication are outlined in the Publication & Data section at the end of this repository.
+<br>
 
 ## Getting started
 
@@ -14,7 +15,7 @@ This repository describes a workflow to harvest and process partial and complete
 * left_reads.fastq.gz #containing the left reads of paired-end sequencing
 * right_reads.fastq.gz #containing the right reads of paired-end sequencing
 * or single-end reads
-<br><br>
+
 ## Running
 
 Before running MitoFinder, you want to make sure that the nomenclature of mitochondrial genes is consistent across reference genome annotations. For example, the control region gene can also be named d-loop or the COXII / COX2. Pick one and standardize them across using the sed command.
@@ -46,7 +47,8 @@ mitofinder --metaspades \ #you can also use megahit which is faster but I found 
 ```
 If the mitochondrial genome of your target organism contains introns and/or you want to look into nuclear mitochondrial DNA (NUMT), and have reference genomes from closely related species you can do a second of MitoFinder on the assemblies (--assembly) from the first run searching for introns (--allow-intron), specifying size (--intron-size) and preventing merging of exons (--cds-merge).
 
-<br><br>
+<br>
+
 ### Tidy up and plot away
 
 When screening lots of samples for mitochondrial contigs, it might be useful to do some tidying up and take advantage of this to generate a summary log file for the results
@@ -142,7 +144,8 @@ Output should contain
   * 15 fasta files named all_${taxa}_${gene}.fasta containing sequences of all species for each gene separately
   * 1 log file named ${taxa}_extract_mt_genes.log
 
-<br><br>
+<br>
+
 ### Align mitochondrial genes with MAFFT
 
 Now that we have concatenated all sequences into fasta files for individual mt genes, we can finally align them! This is an example of an easy loop that will generate alignments for each genes using the MAFFT aligner with default parameters. Best is probably to submit it as a job on a HPC cluster as MAFFT can take a while to run.
@@ -171,21 +174,23 @@ Best fishes and happy coding!
 
 If you have any issues running the command lines or scripts in this repo feel free to reach out! - lauriane.baraf@my.jcu.edu.au
 
-<br><br>
-## Acknowledgements & Citation
+<br>
+
+## Acknowledgements & Citations
 
 Scripts were written by Lauriane Baraf, please cite this repo if using them.
 
-If using MitoFinder, please cite:
+If using MitoFinder, please cite:<br>
 Allio, R., Schomaker‐Bastos, A., Romiguier, J., Prosdocimi, F., Nabholz, B., & Delsuc, F. (2020). MitoFinder: Efficient automated large‐scale extraction of mitogenomic data in target enrichment phylogenomics. Molecular Ecology Resources, 20(4), 892-905.
 
-If using MAFFT v7, please cite:
+If using MAFFT v7, please cite:<br>
 Katoh, K., & Standley, D. M. (2013). MAFFT multiple sequence alignment software version 7: improvements in performance and usability. Molecular biology and evolution, 30(4), 772-780.
 
-<br><br>
+<br>
+
 ## Publication & Data
 
-This repository contains the code initially written to extract mitochondrial data from off-target reads for the reef-associated fish family Pomacanthidae (marine angelfishes). Results are presented in the following publication:
+This repository contains the code initially written to extract mitochondrial data from off-target reads for the reef-associated fish family Pomacanthidae (marine angelfishes). Results are presented in the following publication:<br>
 Baraf et al. (2024). Comparative mitogenomics of marine angelfishes (F: Pomacanthidae). Ecology and Evolution, 14(8), e70127.
 
 Associated complete mitogenomes for pomacanthid sepcimens are available on GenBank under the accession numbers PP316124-PP316129.
